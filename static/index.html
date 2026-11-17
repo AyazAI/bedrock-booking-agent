@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Northline Studio — appointment desk</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <p class="eyebrow">Sample appointment desk</p>
+        <h1 id="business-name">Northline Studio</h1>
+      </div>
+      <p class="provider" id="provider">Mock model</p>
+    </header>
+    <p class="disclaimer" id="disclaimer">Sample studio. No real appointments are kept.</p>
+    <main>
+      <section class="chat" aria-label="Conversation">
+        <div id="thread" class="thread" role="log" aria-live="polite"></div>
+        <div id="suggestions" class="suggestions"></div>
+        <form id="composer">
+          <label class="sr" for="message">Message</label>
+          <textarea id="message" rows="2" placeholder="Ask for a time, a booking, or a studio note" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </section>
+      <aside>
+        <h2>Services</h2>
+        <ul id="services"></ul>
+        <h2>Tools on the last reply</h2>
+        <div id="tools" class="tools">
+          <p class="muted">Tool calls show up here. The model does not invent open times.</p>
+        </div>
+      </aside>
+    </main>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

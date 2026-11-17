@@ -1,0 +1,34 @@
+name: Northline Studio
+timezone: UTC
+slot_minutes: 30
+disclaimer: Sample studio. No real appointments are kept.
+suggestions:
+  - Book an intro consultation tomorrow at 10:00 for Sam
+  - What intro times are free tomorrow?
+  - When are you open?
+  - Where do I park?
+  - Cancel NL-1001
+hours:
+  mon: ["09:00", "17:00"]
+  tue: ["09:00", "17:00"]
+  wed: ["09:00", "17:00"]
+  thu: ["09:00", "17:00"]
+  fri: ["09:00", "17:00"]
+services:
+  - id: intro
+    name: Intro consultation
+    duration_min: 30
+    aliases: [intro, intro consultation, consultation, consult]
+  - id: session
+    name: Working session
+    duration_min: 60
+    aliases: [working session, session]
+  - id: followup
+    name: Follow-up
+    duration_min: 30
+    aliases: [follow-up, follow up, followup]
+sample_booking:
+  code: NL-1001
+  service_id: intro
+  customer_name: Demo Guest
+  time: "15:00"

@@ -1,0 +1,18 @@
+# Optional local Postgres. Not used by the default `docker compose up`.
+# docker compose -f docker-compose.yml -f docker-compose.postgres.yml --profile postgres up --build
+services:
+  app:
+    environment:
+      DATABASE_URL: postgresql+psycopg://booking:local-demo-only@db:5432/booking
+      VECTOR_BACKEND: pgvector
+    depends_on:
+      - db
+  db:
+    profiles: ["postgres"]
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: booking
+      POSTGRES_PASSWORD: local-demo-only
+      POSTGRES_DB: booking
+    ports:
+      - "5432:5432"

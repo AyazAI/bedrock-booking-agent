@@ -1,0 +1,40 @@
+items:
+  - id: cancellation
+    title: Cancellation
+    tags: [cancel, cancellation, policy, reschedule]
+    questions:
+      - What is your cancellation policy?
+      - Can I cancel?
+    answer: >
+      A sample booking can be cancelled in this chat with its confirmation code
+      up to the start time. This is demo copy, not a contract.
+
+  - id: payment
+    title: Payment
+    tags: [pay, payment, price, prices, cost, fee, credits, intro]
+    questions:
+      - How much is an intro?
+      - How do I pay?
+    answer: >
+      The sample price list shows an intro consultation at 40 demo credits,
+      a working session at 80 demo credits, and a follow-up at 40 demo credits.
+      Pay at the visit. These numbers are demo copy, not a quote.
+
+  - id: location
+    title: Location
+    tags: [address, location, located, street]
+    questions:
+      - Where are you located?
+      - What is the address?
+    answer: >
+      Northline Studio has no street address. This demo is not a real place.
+
+  - id: visit
+    title: What to expect
+    tags: [expect, bring, happen, visit]
+    questions:
+      - What should I bring?
+      - What happens at an intro?
+    answer: >
+      An intro consultation is 30 minutes on the sample calendar.
+      Bring whatever notes you want to talk through. Nothing else is required.

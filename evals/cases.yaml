@@ -1,0 +1,33 @@
+# Offline evals. The mock provider must pass these with no API keys.
+# A live provider is not run here: that would spend money and the wording would move.
+cases:
+  - name: book_free_slot
+    message: Book an intro consultation tomorrow at 10:00 for Sam
+    expect_tools: [check_availability, create_booking]
+    reply_contains: ["NL-", "Sam", "10:00"]
+
+  - name: refuse_taken_slot
+    message: Book an intro consultation tomorrow at 15:00 for Sam
+    expect_tools: [check_availability]
+    reply_contains: ["15:00", "not free"]
+
+  - name: cancel_sample
+    message: Cancel NL-1001
+    expect_tools: [cancel_booking]
+    reply_contains: ["Cancelled", "NL-1001"]
+
+  - name: hours_from_notes
+    message: When are you open?
+    expect_tools: [search_faq]
+    reply_contains: ["Monday", "09:00"]
+
+  - name: parking_abstain
+    message: Where do I park?
+    expect_tools: [search_faq]
+    reply_contains: ["confirm"]
+    reply_not_contains: ["garage", "parking lot", "free parking"]
+
+  - name: greeting
+    message: Hello
+    expect_tools: []
+    reply_contains: ["appointment desk"]
