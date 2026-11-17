@@ -1,5 +1,13 @@
 from __future__ import annotations
 
+from datetime import UTC, datetime
+from pathlib import Path
+
+from booking_agent.clock import FrozenClock
+from booking_agent.main import create_app
+from fastapi.testclient import TestClient
+from tests.conftest import make_settings
+
 
 def test_health_hides_secrets(client) -> None:
     client.app.state.settings.whatsapp_app_secret = "not-a-real-secret"
@@ -23,6 +31,16 @@ def test_chat_and_services_page(client) -> None:
     assert meta["llm_provider"] == "mock"
     empty = client.post("/api/chat", json={"message": "   "})
     assert empty.status_code == 400
+
+
+def test_empty_demo_key_rejects_the_example_header(tmp_path: Path) -> None:
+    app = create_app(
+        make_settings(tmp_path, demo_api_key=""),
+        FrozenClock(datetime(2026, 11, 18, 12, 0, tzinfo=UTC)),
+    )
+    with TestClient(app) as test_client:
+        assert test_client.get("/api/bookings").status_code == 401
+        assert test_client.get("/api/bookings", headers={"X-Demo-Key": "demo"}).status_code == 401
 
 
 def test_booking_list_requires_the_demo_key(client) -> None:

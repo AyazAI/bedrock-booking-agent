@@ -1,0 +1,13 @@
+flowchart LR
+  web[Web chat] --> api[FastAPI]
+  wa[WhatsApp adapter] --> api
+  api --> loop[Agent loop]
+  loop --> llm[LLM provider]
+  llm --> mock[Mock]
+  llm --> oai[OpenAI]
+  llm --> bedrock[Bedrock Converse]
+  loop --> tools[Tools]
+  tools --> cal[Booking service]
+  tools --> faq[FAQ retrieval]
+  cal --> db[(SQLite or Postgres)]
+  faq --> vec[(Chroma or pgvector)]

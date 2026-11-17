@@ -27,7 +27,7 @@ Bedrock and OpenAI are extra and are not included in any of those figures. The m
 
 1. Build the image from this repo and push it to a private ECR repository. Do not bake a `.env` into the image. `.dockerignore` already excludes `.env`.
 2. Create an App Runner service from that image, port 8000, health check `GET /health`.
-3. Set `LLM_PROVIDER=mock`, `VECTOR_BACKEND=chroma`, `PORT=8000`. Add `DEMO_API_KEY` only if you want `/api/bookings` locked to something other than the local default.
+3. Set `LLM_PROVIDER=mock`, `VECTOR_BACKEND=chroma`, `PORT=8000`. `GET /api/bookings` stays closed until you set `DEMO_API_KEY`.
 4. Instance role: none, while the provider stays `mock`. Add `bedrock:InvokeModel` on one model id only if you switch providers.
 5. Pause the service when the demo is over.
 

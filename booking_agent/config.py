@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     chroma_path: str = "./data/chroma"
     faq_score_threshold: float = 0.28
     embedding_dims: int = 256
-    demo_api_key: str = "demo"
+    demo_api_key: str = ""
     seed_demo: bool = True
     knowledge_dir: str = "knowledge"
     max_tool_steps: int = 4
